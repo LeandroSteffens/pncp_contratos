@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Informações do Órgão</h1>
+<p>CNPJ: <%= orgao.cnpj %></p>
+<p>Razão Social: <%= orgao.razaoSocial %></p>
+
+<h2>Contratos</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Data de Vigência Inicial</th>
+        <th>Data de Vigência Final</th>
+        <th>Razão Social do Fornecedor</th>
+        <th>Objeto do Contrato</th>
+        <th>Valor Inicial</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% contracts.forEach(contract => { %>
+        <tr>
+            <td><%= contract.dataVigenciaInicio %></td>
+            <td><%= contract.dataVigenciaFim %></td>
+            <td><%= contract.nomeRazaoSocialFornecedor %></td>
+            <td><%= contract.objetoContrato %></td>
+            <td><%= contract.valorInicial %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<h3>Valor Total dos Contratos: <%= totalValue %></h3>
+</body>
+</html>

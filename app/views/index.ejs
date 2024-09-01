@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+<form action="/buscarContratos" method="get">
+  <label for="cnpj">CNPJ:</label>
+  <input type="text" id="cnpj" name="cnpj" required>
+  <label for="dataInicial">Data Inicial:</label>
+  <input type="date" id="dataInicial" name="dataInicial" required>
+  <label for="dataFinal">Data Final:</label>
+  <input type="date" id="dataFinal" name="dataFinal" required>
+  <button type="submit">Buscar</button>
+</form>
+</body>
+</html>
