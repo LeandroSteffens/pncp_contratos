@@ -49,7 +49,7 @@ router.get("/buscarContratos", async (req, res, next) => {
 
   try {
     const response = await makeRequest(url, simuleResponse); // Realiza a request para o endpoint da API, simula o resultado em caso de falha
-    const contracts = response.data;
+    const contracts = response.data.data;
 
     insertContractsIntoDB(contracts); // Chama funcao que realiza a inserção dos contratos no banco de dados
     const totalValue = calculateTotalValue(contracts); // Calcula o valor total dos contratos da busca realizada
