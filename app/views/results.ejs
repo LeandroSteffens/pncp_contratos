@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Resultados</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-<h1>Informações do Órgão</h1>
-<p>CNPJ: <%= orgao.cnpj %></p>
-<p>Razão Social: <%= orgao.razaoSocial %></p>
+  <head>
+    <title>Contratos encontrados</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="container">
+    <h1 class="my-4">Informações do Órgão</h1>
+    <p><strong>CNPJ:</strong> <%= orgao.cnpj %></p>
+    <p><strong>Razão Social:</strong> <%= orgao.razaoSocial %></p>
 
-<h2>Contratos</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Data de Vigência Inicial</th>
-        <th>Data de Vigência Final</th>
-        <th>Razão Social do Fornecedor</th>
-        <th>Objeto do Contrato</th>
-        <th>Valor Inicial</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% contracts.forEach(contract => { %>
+    <h2 class="my-4">Contratos</h2>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
         <tr>
-            <td><%= contract.dataVigenciaInicio %></td>
-            <td><%= contract.dataVigenciaFim %></td>
-            <td><%= contract.nomeRazaoSocialFornecedor %></td>
-            <td><%= contract.objetoContrato %></td>
-            <td><%= contract.valorInicial %></td>
+          <th>Data de Vigência Inicial</th>
+          <th>Data de Vigência Final</th>
+          <th>Razão Social do Fornecedor</th>
+          <th>Objeto do Contrato</th>
+          <th>Valor Inicial</th>
         </tr>
-    <% }) %>
-    </tbody>
-</table>
+      </thead>
+      <tbody>
+        <% contracts.forEach(contract => { %>
+        <tr>
+          <td><%= contract.dataVigenciaInicio %></td>
+          <td><%= contract.dataVigenciaFim %></td>
+          <td><%= contract.nomeRazaoSocialFornecedor %></td>
+          <td><%= contract.objetoContrato %></td>
+          <td><%= contract.valorInicial %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
 
-<h3>Valor Total dos Contratos: <%= totalValue %></h3>
-</body>
+    <h3 class="my-4">Valor Total dos Contratos: <%= totalValue %></h3>
+
+    <!-- Para realizar uma nova busca -->
+    <h2 class="my-4">Realizar Nova Busca</h2>
+    <form action="/buscarContratos" method="get">
+      <div class="form-group">
+        <label for="cnpj">CNPJ:</label>
+        <input
+          type="text"
+          id="cnpj"
+          name="cnpj"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="dataInicial">Data Inicial:</label>
+        <input
+          type="date"
+          id="dataInicial"
+          name="dataInicial"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="dataFinal">Data Final:</label>
+        <input
+          type="date"
+          id="dataFinal"
+          name="dataFinal"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+  </body>
 </html>

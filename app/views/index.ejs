@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= title %></title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-<h1><%= title %></h1>
-<form action="/buscarContratos" method="get">
-  <label for="cnpj">CNPJ:</label>
-  <input type="text" id="cnpj" name="cnpj" required>
-  <label for="dataInicial">Data Inicial:</label>
-  <input type="date" id="dataInicial" name="dataInicial" required>
-  <label for="dataFinal">Data Final:</label>
-  <input type="date" id="dataFinal" name="dataFinal" required>
-  <button type="submit">Buscar</button>
-</form>
-</body>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="container">
+    <h1 class="my-4">Consulta de contratos por CNPJ no PNCP</h1>
+    <form action="/buscarContratos" method="get">
+      <div class="form-group">
+        <label for="cnpj">CNPJ:</label>
+        <input
+          type="text"
+          id="cnpj"
+          name="cnpj"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="dataInicial">Data Inicial:</label>
+        <input
+          type="date"
+          id="dataInicial"
+          name="dataInicial"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="dataFinal">Data Final:</label>
+        <input
+          type="date"
+          id="dataFinal"
+          name="dataFinal"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+  </body>
 </html>
