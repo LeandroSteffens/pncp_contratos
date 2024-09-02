@@ -1,0 +1,1 @@
+Crie uma solução para visualizar informações de contratos de determinado órgão público. Para tanto, deverá ser utilizado o Portal Nacional de Contratações Públicas (PNCP). O PNCP tem uma API REST para consumo desse tipo de informações que pode ser acessada neste link: https://pncp.gov.br/api/consulta/swagger-ui/index.html
